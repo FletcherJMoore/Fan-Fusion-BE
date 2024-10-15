@@ -14,7 +14,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/hogwarts.jpg",
                 DateCreated = new DateTime(2024, 10, 01),
                 TargetAudience = "Young Adult",
-                UserUID = "user123",
+                UserId = 15,
                 CategoryId = "3" // Fantasy
             },
             new()
@@ -25,7 +25,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/galactic.jpg",
                 DateCreated = new DateTime(2024, 09, 28),
                 TargetAudience = "New Adult",
-                UserUID = "user456",
+                UserId = 14,
                 CategoryId = "4" // Science Fiction
             },
             new()
@@ -36,7 +36,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/heartstrings.jpg",
                 DateCreated = new DateTime(2024, 10, 05),
                 TargetAudience = "Adult",
-                UserUID = "user789",
+                UserId = 13,
                 CategoryId = "1" // Romance
             },
             new()
@@ -47,7 +47,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/detective.jpg",
                 DateCreated = new DateTime(2024, 10, 07),
                 TargetAudience = "Young Adult",
-                UserUID = "user234",
+                UserId = 12,
                 CategoryId = "11" // Humor
             },
             new()
@@ -58,7 +58,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/castle.jpg",
                 DateCreated = new DateTime(2024, 10, 12),
                 TargetAudience = "New Adult",
-                UserUID = "user567",
+                UserId = 11,
                 CategoryId = "7" // Supernatural
             },
             new()
@@ -69,7 +69,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/abyss.jpg",
                 DateCreated = new DateTime(2024, 09, 15),
                 TargetAudience = "Young Adult",
-                UserUID = "user890",
+                UserId = 10,
                 CategoryId = "4" // Science Fiction
             },
             new()
@@ -80,7 +80,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/cafe.jpg",
                 DateCreated = new DateTime(2024, 09, 22),
                 TargetAudience = "Adult",
-                UserUID = "user001",
+                UserId = 1,
                 CategoryId = "8" // Slice of Life
             },
             new()
@@ -91,7 +91,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/whispers.jpg",
                 DateCreated = new DateTime(2024, 10, 02),
                 TargetAudience = "New Adult",
-                UserUID = "user002",
+                UserId = 2,
                 CategoryId = "7" // Supernatural
             },
             new()
@@ -102,7 +102,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/heroes.jpg",
                 DateCreated = new DateTime(2024, 09, 30),
                 TargetAudience = "Young Adult",
-                UserUID = "user003",
+                UserId = 3,
                 CategoryId = "14" // Crossover
             },
             new()
@@ -113,7 +113,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/letters.jpg",
                 DateCreated = new DateTime(2024, 09, 18),
                 TargetAudience = "Adult",
-                UserUID = "user004",
+                UserId = 4,
                 CategoryId = "10" // Historical Fiction
             },
             new()
@@ -124,7 +124,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/stand.jpg",
                 DateCreated = new DateTime(2024, 10, 08),
                 TargetAudience = "New Adult",
-                UserUID = "user005",
+                UserId = 5,
                 CategoryId = "3" // Fantasy
             },
             new()
@@ -135,7 +135,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/comedy.jpg",
                 DateCreated = new DateTime(2024, 10, 04),
                 TargetAudience = "Young Adult",
-                UserUID = "user006",
+                UserId = 6,
                 CategoryId = "11" // Humor
             },
             new()
@@ -146,7 +146,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/lines.jpg",
                 DateCreated = new DateTime(2024, 09, 25),
                 TargetAudience = "Adult",
-                UserUID = "user007",
+                UserId = 7,
                 CategoryId = "12" // Drama
             },
             new()
@@ -157,7 +157,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/express.jpg",
                 DateCreated = new DateTime(2024, 10, 03),
                 TargetAudience = "Young Adult",
-                UserUID = "user008",
+                UserId = 8,
                 CategoryId = "7" // Supernatural
             },
             new()
@@ -168,7 +168,7 @@ namespace FanFusion_BE.Data
                 Image = "https://example.com/images/paths.jpg",
                 DateCreated = new DateTime(2024, 09, 20),
                 TargetAudience = "New Adult",
-                UserUID = "user009",
+                UserId = 9,
                 CategoryId = "4" // Science Fiction
             }
         };

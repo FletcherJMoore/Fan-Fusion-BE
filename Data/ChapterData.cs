@@ -14,7 +14,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 01),
                 StoryId = 1,
                 SaveAsDraft = false,
-                UserUid = "user123"
+                UserId = 15
             },
             new()
             {
@@ -24,7 +24,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 28),
                 StoryId = 2,
                 SaveAsDraft = false,
-                UserUid = "user456"
+                UserId = 14
             },
             new()
             {
@@ -34,7 +34,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 05),
                 StoryId = 3,
                 SaveAsDraft = false,
-                UserUid = "user789"
+                UserId = 13
             },
             new()
             {
@@ -44,7 +44,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 07),
                 StoryId = 4,
                 SaveAsDraft = false,
-                UserUid = "user234"
+                UserId = 12
             },
             new()
             {
@@ -54,7 +54,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 12),
                 StoryId = 5,
                 SaveAsDraft = false,
-                UserUid = "user567"
+                UserId = 11
             },
             new()
             {
@@ -64,7 +64,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 15),
                 StoryId = 6,
                 SaveAsDraft = false,
-                UserUid = "user890"
+                UserId = 10
             },
             new()
             {
@@ -74,7 +74,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 10),
                 StoryId = 7,
                 SaveAsDraft = false,
-                UserUid = "user789"
+                UserId = 13
             },
             new()
             {
@@ -84,7 +84,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 30),
                 StoryId = 8,
                 SaveAsDraft = false,
-                UserUid = "user456"
+                UserId = 14
             },
             new()
             {
@@ -94,7 +94,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 03),
                 StoryId = 9,
                 SaveAsDraft = false,
-                UserUid = "user890"
+                UserId = 10
             },
             new()
             {
@@ -104,7 +104,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 02),
                 StoryId = 10,
                 SaveAsDraft = false,
-                UserUid = "user567"
+                UserId = 11
             },
             new()
             {
@@ -114,7 +114,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 25),
                 StoryId = 11,
                 SaveAsDraft = false,
-                UserUid = "user234"
+                UserId = 12
             },
             new()
             {
@@ -124,7 +124,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 29),
                 StoryId = 12,
                 SaveAsDraft = false,
-                UserUid = "user123"
+                UserId = 15
             },
             new()
             {
@@ -134,7 +134,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 18),
                 StoryId = 13,
                 SaveAsDraft = false,
-                UserUid = "user456"
+                UserId = 14
             },
             new()
             {
@@ -144,7 +144,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 01),
                 StoryId = 14,
                 SaveAsDraft = false,
-                UserUid = "user789"
+                UserId = 13
             }
         };
     }

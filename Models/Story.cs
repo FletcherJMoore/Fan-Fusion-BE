@@ -10,7 +10,7 @@ namespace FanFusion_BE.Models
         public string Image {  get; set; }
         public DateTime DateCreated { get; set; }
         public string TargetAudience { get; set; }
-        public string UserUID { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
         public string CategoryId { get; set; }
         public Category Category { get; set; }
