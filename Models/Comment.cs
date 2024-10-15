@@ -7,5 +7,8 @@
         public DateTime CreatedOn { get; set; }
         public string UserUid { get; set; }
         public User User { get; set; }
+        public int ChapterId { get; set; }
+        public Chapter Chapter { get; set; }
+
     }
 }

@@ -15,5 +15,6 @@ namespace FanFusion_BE.Models
         public string CategoryId { get; set; }
         public Category Category { get; set; }
         public List<Tag> Tags { get; set; }
+        public List<Chapter> Chapters { get; set; }
     }
 }
