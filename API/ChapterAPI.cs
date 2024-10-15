@@ -1,8 +1,6 @@
 ﻿using FanFusion_BE.DTO;
 using FanFusion_BE.Models;
 using Microsoft.EntityFrameworkCore;
-using Rare.Models;
-
 
 namespace FanFusion_BE.API
 {
@@ -55,6 +53,20 @@ namespace FanFusion_BE.API
             //Post/Put 
 
             //Delete
+            app.MapDelete("/chapters/{chapterId}", (FanFusionDbContext db, int chapterId) =>
+            {
+                Chapter chapter = db.Chapters
+                .SingleOrDefault(ch => ch.Id == chapterId);
+
+                if (chapter == null)
+                {
+                    return Results.NotFound($"There is no chapter with the following id: ${chapterId}");
+                }
+                db.Chapters.Remove(chapter);
+                db.SaveChanges();
+
+                return Results.Ok(chapter);
+            });
 
 
 
