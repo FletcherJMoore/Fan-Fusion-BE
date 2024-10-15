@@ -26,7 +26,7 @@ builder.Services.AddCors(options =>
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // allows our api endpoints to access the database through Entity Framework Core
-builder.Services.AddNpgsql<TunaPianoDbContext>(builder.Configuration["TunaPianoDbConnectionString"]);
+builder.Services.AddNpgsql<FanFusionDbContext>(builder.Configuration["FanFusionDbConnectionString"]);
 
 // Set the JSON serializer options
 builder.Services.Configure<JsonOptions>(options =>
@@ -46,8 +46,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-ArtistAPI.Map(app);
-GenreAPI.Map(app);
-SongAPI.Map(app);
+StoryAPI.Map(app);
+TagAPI.Map(app);
+UserAPI.Map(app);
 
 app.Run();
