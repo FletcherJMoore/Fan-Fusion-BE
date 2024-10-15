@@ -1,10 +1,10 @@
 ﻿namespace FanFusion_BE.API
 {
-    public class UserAPI
+    public class CategoryAPI
     {
         public static void Map(WebApplication app)
         {
-           
+
 
         }
     }

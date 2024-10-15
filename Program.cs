@@ -49,5 +49,8 @@ app.UseHttpsRedirection();
 StoryAPI.Map(app);
 TagAPI.Map(app);
 UserAPI.Map(app);
+CommentAPI.Map(app);
+ChapterAPI.Map(app);
+CategoryAPI.Map(app);
 
 app.Run();
