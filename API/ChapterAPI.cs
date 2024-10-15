@@ -45,8 +45,6 @@ namespace FanFusion_BE.API
                            comment.CreatedOn, 
                            User = new UserDto(comment.User),
                        })
-
-
                 });
             });
 
