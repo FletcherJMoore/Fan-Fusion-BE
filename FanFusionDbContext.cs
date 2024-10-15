@@ -8,6 +8,11 @@ namespace FanFusion_BE
         public DbSet<Story> Stories { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Chapter> Chapters { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
+
 
 
         public FanFusionDbContext(DbContextOptions<FanFusionDbContext> context) : base(context)
@@ -26,7 +31,7 @@ namespace FanFusion_BE
 
             modelBuilder.Entity<Comment>().HasData(CommentData.Comments);
 
-            modelBuilder.Entity<Category>().HasData(CommentData.Category);
+            modelBuilder.Entity<Category>().HasData(CategoryData.Categories);
 
         }
     }

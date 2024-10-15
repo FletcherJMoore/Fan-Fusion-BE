@@ -10,7 +10,7 @@
         public Story Story { get; set; }
         public bool SaveAsDraft { get; set; }
         public List<Comment>? Comments { get; set; }
-        public string UserUid { get; set; }
+        public int UserId { get; set; }
         public User User { get; set; }
     }
 }
