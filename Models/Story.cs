@@ -12,7 +12,7 @@ namespace FanFusion_BE.Models
         public string TargetAudience { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-        public string CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public Category Category { get; set; }
         public List<Tag> Tags { get; set; }
         public List<Chapter> Chapters { get; set; }

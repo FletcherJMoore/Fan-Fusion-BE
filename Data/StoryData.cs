@@ -15,7 +15,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 01),
                 TargetAudience = "Young Adult",
                 UserId = 15,
-                CategoryId = "3" // Fantasy
+                CategoryId = 3 // Fantasy
             },
             new()
             {
@@ -26,7 +26,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 28),
                 TargetAudience = "New Adult",
                 UserId = 14,
-                CategoryId = "4" // Science Fiction
+                CategoryId = 4 // Science Fiction
             },
             new()
             {
@@ -37,7 +37,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 05),
                 TargetAudience = "Adult",
                 UserId = 13,
-                CategoryId = "1" // Romance
+                CategoryId = 1 // Romance
             },
             new()
             {
@@ -48,7 +48,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 07),
                 TargetAudience = "Young Adult",
                 UserId = 12,
-                CategoryId = "11" // Humor
+                CategoryId = 11 // Humor
             },
             new()
             {
@@ -59,7 +59,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 12),
                 TargetAudience = "New Adult",
                 UserId = 11,
-                CategoryId = "7" // Supernatural
+                CategoryId = 7 // Supernatural
             },
             new()
             {
@@ -70,7 +70,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 15),
                 TargetAudience = "Young Adult",
                 UserId = 10,
-                CategoryId = "4" // Science Fiction
+                CategoryId = 4 // Science Fiction
             },
             new()
             {
@@ -81,7 +81,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 22),
                 TargetAudience = "Adult",
                 UserId = 1,
-                CategoryId = "8" // Slice of Life
+                CategoryId = 8 // Slice of Life
             },
             new()
             {
@@ -92,7 +92,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 02),
                 TargetAudience = "New Adult",
                 UserId = 2,
-                CategoryId = "7" // Supernatural
+                CategoryId = 7 // Supernatural
             },
             new()
             {
@@ -103,7 +103,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 30),
                 TargetAudience = "Young Adult",
                 UserId = 3,
-                CategoryId = "14" // Crossover
+                CategoryId = 14 // Crossover
             },
             new()
             {
@@ -114,7 +114,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 18),
                 TargetAudience = "Adult",
                 UserId = 4,
-                CategoryId = "10" // Historical Fiction
+                CategoryId = 10 // Historical Fiction
             },
             new()
             {
@@ -125,7 +125,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 08),
                 TargetAudience = "New Adult",
                 UserId = 5,
-                CategoryId = "3" // Fantasy
+                CategoryId = 3 // Fantasy
             },
             new()
             {
@@ -136,7 +136,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 04),
                 TargetAudience = "Young Adult",
                 UserId = 6,
-                CategoryId = "11" // Humor
+                CategoryId = 11 // Humor
             },
             new()
             {
@@ -147,7 +147,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 25),
                 TargetAudience = "Adult",
                 UserId = 7,
-                CategoryId = "12" // Drama
+                CategoryId = 12 // Drama
             },
             new()
             {
@@ -158,7 +158,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 10, 03),
                 TargetAudience = "Young Adult",
                 UserId = 8,
-                CategoryId = "7" // Supernatural
+                CategoryId = 7 // Supernatural
             },
             new()
             {
@@ -169,7 +169,7 @@ namespace FanFusion_BE.Data
                 DateCreated = new DateTime(2024, 09, 20),
                 TargetAudience = "New Adult",
                 UserId = 9,
-                CategoryId = "4" // Science Fiction
+                CategoryId = 4 // Science Fiction
             }
         };
 
