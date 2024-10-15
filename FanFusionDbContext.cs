@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using FanFusion_BE.Models;
+using FanFusion_BE.Data;
 namespace FanFusion_BE
 {
     public class FanFusionDbContext : DbContext
@@ -20,6 +21,12 @@ namespace FanFusion_BE
             modelBuilder.Entity<Tag>().HasData(TagData.Tags);
 
             modelBuilder.Entity<User>().HasData(UserData.Users);
+
+            modelBuilder.Entity<Chapter>().HasData(ChapterData.Chapters);
+
+            modelBuilder.Entity<Comment>().HasData(CommentData.Comments);
+
+            modelBuilder.Entity<Category>().HasData(CommentData.Category);
 
         }
     }
