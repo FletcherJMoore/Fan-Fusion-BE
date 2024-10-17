@@ -1,23 +1,27 @@
-﻿namespace FanFusion_BE.API
+﻿using FanFusion_BE.DTO;
+using FanFusion_BE.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
+using System.Reflection.Metadata.Ecma335;
+
+namespace FanFusion_BE.API
 {
     public class TagAPI
     {
         public static void Map(WebApplication app)
         {
-            // add tag to story 
-
-            // remove tag from story 
-            //app.Map
-
+   
             // get all tags
             app.MapGet("/tags", (FanFusionDbContext db) =>
             {
-                var tags = db.Tags.ToList();
-                if (!tags.Any())
+                var allTags = db.Tags.ToList();
+
+                var tagDtos = allTags.Select(tag => new TagDto(tag)).ToList();
+                if (!tagDtos.Any())
                 {
                     return Results.Ok("There are no aviliable tags to display");
                 }
-                return Results.Ok(tags);
+                return Results.Ok(tagDtos);
             });
 
 
