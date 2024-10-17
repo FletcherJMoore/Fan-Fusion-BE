@@ -52,5 +52,6 @@ UserAPI.Map(app);
 CommentAPI.Map(app);
 ChapterAPI.Map(app);
 CategoryAPI.Map(app);
+StoryTagAPI.Map(app);
 
 app.Run();

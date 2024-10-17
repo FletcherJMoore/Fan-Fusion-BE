@@ -48,7 +48,51 @@ namespace FanFusion_BE.API
                 });
             });
 
-            //Post/Put 
+            // Create or Update Chapter (Used for both the publish and save as draft btn in the chapter form)
+            app.MapPost("/chapters", async (FanFusionDbContext db, Chapter newChapter) =>
+            {
+
+                // Find the existing chapter if it exists
+                var existingChapter = await db.Chapters.FindAsync(newChapter.Id);
+
+                if (existingChapter != null)
+                {
+                    // Update existing chapter by directly modifying properties
+                    existingChapter.Title = newChapter.Title;
+                    existingChapter.Content = newChapter.Content;
+                    existingChapter.SaveAsDraft = newChapter.SaveAsDraft;
+                    await db.SaveChangesAsync(); // Save the changes to the database
+
+                    return Results.Ok(existingChapter); // Return the updated chapter
+                }
+                else
+                {
+                    // Check if the chapter's author exists
+                    if (!db.Users.Any(user => user.Id == newChapter.UserId))
+                    {
+                        return Results.NotFound($"No user found with the following id: {newChapter.UserId}");
+                    }
+                    else if (!db.Stories.Any(story => story.Id == newChapter.StoryId))
+                    {
+                        return Results.NotFound($"No story was found with the following id: {newChapter.StoryId}");
+                    }
+                    // Create new chapter
+                    Chapter addChapter = new()
+                    {
+                        Title = newChapter.Title,
+                        Content = newChapter.Content,
+                        UserId = newChapter.UserId,
+                        SaveAsDraft = newChapter.SaveAsDraft,
+                        DateCreated = DateTime.Now,
+                        StoryId = newChapter.StoryId,
+                    };
+
+                    await db.Chapters.AddAsync(addChapter);
+                    await db.SaveChangesAsync();
+
+                    return Results.Created($"chapters/{addChapter.Id}", addChapter);
+                }
+            });
 
             //Delete
             app.MapDelete("/chapters/{chapterId}", (FanFusionDbContext db, int chapterId) =>
