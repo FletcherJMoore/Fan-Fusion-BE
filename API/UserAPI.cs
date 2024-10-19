@@ -9,25 +9,31 @@ namespace FanFusion_BE.API
         public static void Map(WebApplication app)
         {
             //CHECK USER
-          /*  app.MapPost("/checkUser", (FanFusionDbContext db, string userId) =>
+            app.MapGet("/checkUser/{uid}", (FanFusionDbContext db, string uid) =>
             {
-                var user = db.Users
-                  .Where(u => u.Uid == userId)
-                  .FirstOrDefault();
+                User? userCheck = db.Users.FirstOrDefault(u => u.Uid == uid);
 
-                if (user == null)
+                if (userCheck == null)
                 {
-                    return Results.NotFound();
+                    return Results.NotFound("User is not registered");
                 }
-                return Results.Ok(user);
-            });*/
+                return Results.Ok(new
+                {
+                    userCheck.Id,
+                    userCheck.FirstName,
+                    userCheck.LastName,
+                    userCheck.Email,
+                    userCheck.Image,
+                    userCheck.Uid
+                });
+            });
 
             //GET SINGLE STORY AND IT'S STORIES
-            app.MapGet("/users/{userId}", (FanFusionDbContext db, string userId) =>
+            app.MapGet("/users/{userId}", (FanFusionDbContext db, int userId) =>
             {
                 User? user = db.Users
                 .Include(s => s.Stories)
-                .SingleOrDefault(u => u.Uid == userId);
+                .SingleOrDefault(u => u.Id == userId);
 
                 if (user == null)
                 {
