@@ -85,7 +85,7 @@ namespace FanFusion_BE.API
                 db.Stories.Add(newStory);
                 db.SaveChanges();
 
-                return Results.Created($"/story/{newStory.Id}", newStory);
+                return Results.Created($"/stories/{newStory.Id}", newStory);
             });
 
             //EDIT STORY BY ID 
@@ -120,17 +120,23 @@ namespace FanFusion_BE.API
             //DELETE STORY 
             app.MapDelete("/stories/{storyId}", (FanFusionDbContext db, int storyId) =>
             {
-                Story story = db.Stories.FirstOrDefault(p => p.Id == storyId);
+                //FIND THE STORY
+                Story story = db.Stories
+                .Include(s => s.Chapters)
+                .FirstOrDefault(p => p.Id == storyId);
 
                 if (story == null)
                 {
                     return Results.NotFound();
                 }
+                // REMOVE ALL ACCOCIATED CHAPTERS
+                db.Chapters.RemoveRange(story.Chapters);
 
+                //REMOVE STORY
                 db.Stories.Remove(story);
                 db.SaveChanges();
 
-                return Results.NoContent();
+                return Results.Ok(story);
             });
         }
     }
