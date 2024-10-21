@@ -28,11 +28,12 @@ namespace FanFusion_BE.API
                 });
             });
 
-            //GET SINGLE STORY AND IT'S STORIES
+            //GET SINGLE USER 
             app.MapGet("/users/{userId}", (FanFusionDbContext db, int userId) =>
             {
                 User? user = db.Users
                 .Include(s => s.Stories)
+                .Include(s => s.Chapters)
                 .SingleOrDefault(u => u.Id == userId);
 
                 if (user == null)
@@ -49,6 +50,9 @@ namespace FanFusion_BE.API
                     user.Username,
                     user.Uid,
                     Stories = user.Stories?.Select(story => new StoryDTO(story)).ToList(),
+                    Chapters = user.Chapters?.Select(chapter => new ChapterDto(chapter))
+                        .Where(chapter => chapter.SaveAsDraft == true)
+                        .OrderByDescending(chapter => chapter.DateCreated),
                 });
             });
 

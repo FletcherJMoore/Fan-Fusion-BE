@@ -92,11 +92,11 @@ namespace FanFusion_BE.API
             app.MapPut("/stories/{storyId}", (FanFusionDbContext db, Story story, int storyId) =>
             {
                 Story updatedStory = db.Stories.SingleOrDefault(story => story.Id == storyId);
+
                 if (updatedStory == null)
                 {
-                    return Results.NotFound($"No story found with the follow id: {story}");
+                    return Results.NotFound($"No story found with the follow id: {storyId}");
                 }
-                // Check if the stories's author exists
                 else if (!db.Users.Any(user => user.Id == story.UserId))
                 {
                     return Results.NotFound($"No user found with the following id: {story.UserId}");
@@ -108,7 +108,6 @@ namespace FanFusion_BE.API
                 updatedStory.Title = story.Title;  
                 updatedStory.Description = story.Description;
                 updatedStory.Image = story.Image;
-                updatedStory.DateCreated = DateTime.Now;
                 updatedStory.UserId = story.UserId;  
                 updatedStory.TargetAudience = story.TargetAudience;
                 updatedStory.CategoryId = story.CategoryId;
@@ -137,6 +136,35 @@ namespace FanFusion_BE.API
                 db.SaveChanges();
 
                 return Results.Ok(story);
+            });
+
+            //Search 
+            app.MapGet("/stories/search", (FanFusionDbContext db, string searchValue) =>
+            {
+                if (string.IsNullOrWhiteSpace(searchValue))
+                {
+                    return Results.BadRequest("Search value cannot be empty.");
+                }
+                var searchResults = db.Stories
+                .Where(story =>
+                    story.Title.ToLower().Contains(searchValue.ToLower()) ||
+                    story.Category != null && story.Category.Title.ToLower().Contains(searchValue.ToLower()) ||
+                    story.Tags.Any(tag => tag.Name.ToLower().Contains(searchValue.ToLower()) ||
+                    story.User != null && (story.User.FirstName.ToLower().Contains(searchValue.ToLower()) ||
+                    story.User.LastName.ToLower().Contains(searchValue.ToLower()) ||
+                    story.User.Username.ToLower().Contains(searchValue.ToLower())) ||
+                    story.TargetAudience.ToLower().Contains(searchValue.ToLower()))
+                )
+
+                .OrderByDescending(story => story.DateCreated)
+                .Select(story => new StoryDTO(story))
+                .ToList();
+
+                if (!searchResults.Any())
+                {
+                    return Results.Ok("No stories found for this search.");
+                }
+                return Results.Ok(searchResults);
             });
         }
     }

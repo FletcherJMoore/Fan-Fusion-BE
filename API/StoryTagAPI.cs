@@ -35,7 +35,7 @@ namespace FanFusion_BE.API
             });
 
             // remove tag from story 
-            app.MapDelete("/stories/{storiesId}/remove-tag/{tagId} ", (FanFusionDbContext db, int tagId, int storyId) =>
+            app.MapDelete("/stories/{storyId}/remove-tag/{tagId}", (FanFusionDbContext db, int tagId, int storyId) =>
             {
                 Story? story = db.Stories
                 .Include(s => s.Tags)
