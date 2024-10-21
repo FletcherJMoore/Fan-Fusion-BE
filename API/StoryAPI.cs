@@ -92,11 +92,11 @@ namespace FanFusion_BE.API
             app.MapPut("/stories/{storyId}", (FanFusionDbContext db, Story story, int storyId) =>
             {
                 Story updatedStory = db.Stories.SingleOrDefault(story => story.Id == storyId);
+
                 if (updatedStory == null)
                 {
-                    return Results.NotFound($"No story found with the follow id: {story}");
+                    return Results.NotFound($"No story found with the follow id: {storyId}");
                 }
-                // Check if the stories's author exists
                 else if (!db.Users.Any(user => user.Id == story.UserId))
                 {
                     return Results.NotFound($"No user found with the following id: {story.UserId}");
@@ -108,7 +108,6 @@ namespace FanFusion_BE.API
                 updatedStory.Title = story.Title;  
                 updatedStory.Description = story.Description;
                 updatedStory.Image = story.Image;
-                updatedStory.DateCreated = DateTime.Now;
                 updatedStory.UserId = story.UserId;  
                 updatedStory.TargetAudience = story.TargetAudience;
                 updatedStory.CategoryId = story.CategoryId;
