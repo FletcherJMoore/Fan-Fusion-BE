@@ -138,6 +138,35 @@ namespace FanFusion_BE.API
 
                 return Results.Ok(story);
             });
+
+            //Search 
+            app.MapGet("/stories/search", (FanFusionDbContext db, string searchValue) =>
+            {
+                if (string.IsNullOrWhiteSpace(searchValue))
+                {
+                    return Results.BadRequest("Search value cannot be empty.");
+                }
+                var searchResults = db.Stories
+                .Where(story =>
+                    story.Title.ToLower().Contains(searchValue.ToLower()) ||
+                    story.Category != null && story.Category.Title.ToLower().Contains(searchValue.ToLower()) ||
+                    story.Tags.Any(tag => tag.Name.ToLower().Contains(searchValue.ToLower()) ||
+                    story.User != null && (story.User.FirstName.ToLower().Contains(searchValue.ToLower()) ||
+                    story.User.LastName.ToLower().Contains(searchValue.ToLower()) ||
+                    story.User.Username.ToLower().Contains(searchValue.ToLower())) ||
+                    story.TargetAudience.ToLower().Contains(searchValue.ToLower()))
+                )
+
+                .OrderByDescending(story => story.DateCreated)
+                .Select(story => new StoryDTO(story))
+                .ToList();
+
+                if (!searchResults.Any())
+                {
+                    return Results.Ok("No stories found for this search.");
+                }
+                return Results.Ok(searchResults);
+            });
         }
     }
 }

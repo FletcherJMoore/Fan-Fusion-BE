@@ -50,7 +50,9 @@ namespace FanFusion_BE.API
                     user.Username,
                     user.Uid,
                     Stories = user.Stories?.Select(story => new StoryDTO(story)).ToList(),
-                    Chapters = user.Chapters?.Select(chapter => new ChapterDto(chapter)).Where(chapter => chapter.SaveAsDraft == true),
+                    Chapters = user.Chapters?.Select(chapter => new ChapterDto(chapter))
+                        .Where(chapter => chapter.SaveAsDraft == true)
+                        .OrderByDescending(chapter => chapter.DateCreated),
                 });
             });
 
