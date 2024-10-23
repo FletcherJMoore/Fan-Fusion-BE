@@ -23,7 +23,7 @@ namespace FanFusion_BE.API
                 return Results.Ok(storyDTOs);
             });
 
-            //GET SINGLE STORY AND IT'S CHAPTERS
+            //GET SINGLE STORY AND IT'S CHAPTERS (SaveAsDraft: false)
             app.MapGet("/stories/{storyId}", (FanFusionDbContext db, int storyId) => 
             {
                 Story? story = db.Stories
@@ -122,7 +122,7 @@ namespace FanFusion_BE.API
                 //FIND THE STORY
                 Story story = db.Stories
                 .Include(s => s.Chapters)
-                .FirstOrDefault(p => p.Id == storyId);
+                .FirstOrDefault(s => s.Id == storyId);
 
                 if (story == null)
                 {

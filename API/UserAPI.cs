@@ -38,7 +38,7 @@ namespace FanFusion_BE.API
 
                 if (user == null)
                 {
-                    return Results.NotFound("User not found");
+                    return Results.NotFound($"There is no user with the following id: {userId}");
                 }
 
                 return Results.Ok(new

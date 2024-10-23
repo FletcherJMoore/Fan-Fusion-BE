@@ -61,7 +61,7 @@ namespace FanFusion_BE.API
                     existingChapter.Title = newChapter.Title;
                     existingChapter.Content = newChapter.Content;
                     existingChapter.SaveAsDraft = newChapter.SaveAsDraft;
-                    await db.SaveChangesAsync(); // Save the changes to the database
+                    await db.SaveChangesAsync();
 
                     return Results.Ok(existingChapter); // Return the updated chapter
                 }
