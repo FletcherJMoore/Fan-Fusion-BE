@@ -23,18 +23,18 @@ namespace FanFusion_BE.API
                 return Results.Ok(storyDTOs);
             });
 
-            //GET SINGLE STORY AND IT'S CHAPTERS
+            //GET SINGLE STORY AND IT'S CHAPTERS (SaveAsDraft: false)
             app.MapGet("/stories/{storyId}", (FanFusionDbContext db, int storyId) => 
             {
                 Story? story = db.Stories
-                .Include(s => s.Chapters)
+                .Include(s => s.Chapters.Where(c => c.SaveAsDraft == false))
                 .Include(s => s.Tags)
                 .Include(s => s.User)
                 .SingleOrDefault(s => s.Id == storyId);
 
                 if (story == null)
                 {
-                    return Results.NotFound("Story not found");
+                    return Results.NotFound($"The story with the following id was not found: {storyId}");
                 }
 
                 return Results.Ok(new
@@ -122,11 +122,11 @@ namespace FanFusion_BE.API
                 //FIND THE STORY
                 Story story = db.Stories
                 .Include(s => s.Chapters)
-                .FirstOrDefault(p => p.Id == storyId);
+                .FirstOrDefault(s => s.Id == storyId);
 
                 if (story == null)
                 {
-                    return Results.NotFound();
+                    return Results.NotFound($"No story was found with the following id: {storyId}");
                 }
                 // REMOVE ALL ACCOCIATED CHAPTERS
                 db.Chapters.RemoveRange(story.Chapters);

@@ -26,7 +26,7 @@ namespace FanFusion_BE.API
                 }
                 else if (story.Tags.Contains(tag))
                 {
-                    return Results.Ok("This post already has this tag.");
+                    return Results.Ok("This story already has this tag.");
                 }
 
                 story.Tags.Add(tag);
