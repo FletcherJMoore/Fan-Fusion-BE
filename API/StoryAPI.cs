@@ -179,16 +179,21 @@ namespace FanFusion_BE.API
                 }
 
                 var stories = db.Stories
-                    .Include(s => s.Category)
+                   .Include(s => s.Category)
                     .Where(c => c.CategoryId == categoryId)
                     .ToList();
+
+                var storyDTOs = stories
+                   .Select(story => new StoryDTO(story))
+                   .OrderByDescending(dto => dto.DateCreated)
+                   .ToList();
 
                 if (!stories.Any())
                 {
                     return Results.NotFound("No stories found for this category.");
                 }
 
-                return Results.Ok(stories);
+                return Results.Ok(storyDTOs);
             });
         }
     }
