@@ -167,7 +167,29 @@ namespace FanFusion_BE.API
                 return Results.Ok(searchResults);
             });
 
+            //GET STORIES BY CATEGORY
+            app.MapGet("/stories/categories/{categoryId}", (FanFusionDbContext db, int categoryId) =>
+            {
+                var category = db.Categories.FirstOrDefault(c => c.Id == categoryId);
 
+                // Check if the category exists
+                if (category == null)
+                {
+                    return Results.NotFound($"Category with ID {categoryId} not found.");
+                }
+
+                var stories = db.Stories
+                    .Include(s => s.Category)
+                    .Where(c => c.CategoryId == categoryId)
+                    .ToList();
+
+                if (!stories.Any())
+                {
+                    return Results.NotFound("No stories found for this category.");
+                }
+
+                return Results.Ok(stories);
+            });
         }
     }
 }
