@@ -27,7 +27,7 @@ namespace FanFusion_BE.API
             app.MapGet("/stories/{storyId}", (FanFusionDbContext db, int storyId) => 
             {
                 Story? story = db.Stories
-                .Include(s => s.Chapters.Where(c => c.SaveAsDraft == false))
+                .Include(s => s.Chapters)
                 .Include(s => s.Tags)
                 .Include(s => s.User)
                 .SingleOrDefault(s => s.Id == storyId);
@@ -166,6 +166,8 @@ namespace FanFusion_BE.API
                 }
                 return Results.Ok(searchResults);
             });
+
+
         }
     }
 }

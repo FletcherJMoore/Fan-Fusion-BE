@@ -48,6 +48,7 @@ namespace FanFusion_BE.API
                     user.LastName,
                     user.Image,
                     user.Username,
+                    user.Email,
                     user.Uid,
                     Stories = user.Stories?.Select(story => new StoryDTO(story)).ToList(),
                     Chapters = user.Chapters?.Select(chapter => new ChapterDto(chapter))

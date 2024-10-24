@@ -60,8 +60,6 @@ namespace FanFusion_BE.API
                 db.SaveChanges();
                 return Results.Ok("Tag removed");
             });
-
-
         }
     }
 }
