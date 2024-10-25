@@ -27,7 +27,7 @@ namespace FanFusion_BE.API
             app.MapGet("/stories/{storyId}", (FanFusionDbContext db, int storyId) => 
             {
                 Story? story = db.Stories
-                .Include(s => s.Chapters.Where(c => c.SaveAsDraft == false))
+                .Include(s => s.Chapters)
                 .Include(s => s.Tags)
                 .Include(s => s.User)
                 .SingleOrDefault(s => s.Id == storyId);
@@ -165,6 +165,35 @@ namespace FanFusion_BE.API
                     return Results.Ok("No stories found for this search.");
                 }
                 return Results.Ok(searchResults);
+            });
+
+            //GET STORIES BY CATEGORY
+            app.MapGet("/stories/categories/{categoryId}", (FanFusionDbContext db, int categoryId) =>
+            {
+                var category = db.Categories.FirstOrDefault(c => c.Id == categoryId);
+
+                // Check if the category exists
+                if (category == null)
+                {
+                    return Results.NotFound($"Category with ID {categoryId} not found.");
+                }
+
+                var stories = db.Stories
+                   .Include(s => s.Category)
+                    .Where(c => c.CategoryId == categoryId)
+                    .ToList();
+
+                var storyDTOs = stories
+                   .Select(story => new StoryDTO(story))
+                   .OrderByDescending(dto => dto.DateCreated)
+                   .ToList();
+
+                if (!stories.Any())
+                {
+                    return Results.NotFound("No stories found for this category.");
+                }
+
+                return Results.Ok(storyDTOs);
             });
         }
     }

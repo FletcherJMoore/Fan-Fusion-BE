@@ -1,4 +1,6 @@
 ﻿using FanFusion_BE.DTO;
+using FanFusion_BE.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace FanFusion_BE.API
 {
