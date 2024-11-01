@@ -179,7 +179,6 @@ namespace FanFusion_BE.API
                 }
 
                 var stories = db.Stories
-                   .Include(s => s.Category)
                     .Where(c => c.CategoryId == categoryId)
                     .ToList();
 
