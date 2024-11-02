@@ -85,3 +85,7 @@ To run tests, use:
 ```bash
 npm test 
 ```
+
+##Postman Documentation
+You can also test our calls on Postman! 
+Link: https://www.postman.com/rare-be/fan-fiction-be/collection/xriezl6/fan-fusion
